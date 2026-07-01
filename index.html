@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>求职指挥台</title>
+<style>
+  :root{--bg:#EEF1F0;--surface:#FFFFFF;--ink:#16201C;--muted:#5B6B72;--line:#DBE1DE;--accent:#0E6E5C;--soft:#E2F0EC;--pri:#0E6E5C;--chong:#B5761F;--check:#5B6B72;--paste:#F6F8F7;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;}
+  *{box-sizing:border-box}html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;padding:26px 16px 96px}
+  .wrap{max-width:960px;margin:0 auto}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+  h1{font-size:26px;font-weight:680;margin:0 0 8px}
+  .sub{color:var(--muted);font-size:13px;margin:0;max-width:70ch}
+  .excl{font-size:12px;color:var(--chong);margin:8px 0 0}
+  .stats{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 16px;min-width:80px}
+  .stat .num{font-size:22px;font-weight:700;font-family:var(--mono)}
+  .stat .lbl{font-size:11px;color:var(--muted);font-family:var(--mono);letter-spacing:.06em}
+  .controls{position:sticky;top:0;background:var(--bg);padding:12px 0 8px;z-index:5;border-bottom:1px solid var(--line)}
+  .frow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:7px}
+  .frow .k{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;width:44px;flex:none}
+  .chip{font-size:12.5px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:5px 11px;border-radius:999px;cursor:pointer}
+  .chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:2px}
+  #q{flex:1;min-width:140px;font-size:13px;padding:7px 11px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+  .mini{font-size:12.5px;font-weight:600;border:1px solid var(--accent);background:#fff;color:var(--accent);padding:7px 12px;border-radius:8px;cursor:pointer}
+  .mini.solid{background:var(--accent);color:#fff}
+  .sec-h{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:26px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--accent);display:flex;justify-content:space-between}
+  .sec-h .c{color:var(--muted);font-size:11px}
+  .row{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--check);border-radius:10px;padding:13px 15px;margin-bottom:9px}
+  .row[data-tier="pri"]{border-left-color:var(--pri)}.row[data-tier="chong"]{border-left-color:var(--chong)}
+  .htop{display:flex;gap:12px;align-items:flex-start}.hgrow{flex:1;min-width:0}
+  .title{font-weight:620;font-size:14.5px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center}
+  .tag{font-family:var(--mono);font-size:10.5px;color:var(--muted);background:#F1F4F3;border:1px solid var(--line);padding:2px 7px;border-radius:5px}
+  .tag.role{color:var(--accent);background:var(--soft);border-color:#CFE6DF}
+  .tag.pri{color:#fff;background:var(--pri);border-color:var(--pri)}.tag.chong{color:#fff;background:var(--chong);border-color:var(--chong)}
+  select.status{appearance:none;-webkit-appearance:none;font-family:var(--sans);font-size:12px;font-weight:600;color:#fff;border:none;padding:6px 26px 6px 12px;border-radius:999px;cursor:pointer;white-space:nowrap;flex:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'%3E%3Cpath d='M1 3l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center}
+  select.status option{background:#fff;color:#16201C}
+  .followup{font-size:11px;color:#B03A3A;margin-left:8px}
+  .opener{background:var(--paste);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-top:10px;font-size:12.5px;color:#28332E;line-height:1.6}
+  .acts{display:flex;gap:8px;margin-top:9px;flex-wrap:wrap}
+  .b{font-size:12.5px;font-weight:600;border-radius:8px;padding:7px 13px;cursor:pointer;border:1px solid var(--accent)}
+  .b.copy{background:var(--accent);color:#fff}.b.copy.done{background:#3A5560;border-color:#3A5560}
+  .b.go{background:#fff;color:var(--accent);text-decoration:none}
+  .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.95);border-top:1px solid var(--line);padding:12px 16px;z-index:8}
+  .bar-in{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+  .count{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+  .toast{position:fixed;left:50%;bottom:78px;transform:translateX(-50%) translateY(12px);background:var(--ink);color:#fff;font-size:13px;padding:9px 16px;border-radius:8px;opacity:0;pointer-events:none;transition:.2s;z-index:9}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">求职指挥台 · 上海 · 全职 · ≥25w</p>
+  <h1>求职指挥台</h1>
+  <p class="sub">按行业分区、可按岗位/状态筛选。右侧状态<b>下拉直选</b>(待投/已打招呼/已回复/面试/不合适/薪资不合适),自动存本机。数据来自 jobs.js(可编辑)。</p>
+  <p class="excl">已按规则预筛:排除 5 年+经验、要求 FA/PE/VC 或美元基金背景、以及"必备募资经历/自带LP资源"的基金募资岗。</p>
+  <div class="stats" id="stats"></div>
+  <div class="controls">
+    <div class="frow"><span class="k">行业</span><span id="f-ind"></span></div>
+    <div class="frow"><span class="k">岗位</span><span id="f-role"></span></div>
+    <div class="frow"><span class="k">状态</span><span id="f-status"></span></div>
+    <div class="tools"><input id="q" placeholder="搜公司 / 职位…"><button class="mini" id="markAll">当前视图全标「已打招呼」</button><button class="mini solid" id="copyActed">复制已行动清单</button></div>
+  </div>
+  <div id="list"></div>
+</div>
+<div class="bar"><div class="bar-in"><span class="count" id="footer"></span><span class="count">状态存本机 · 复制已行动清单发我,移除已投/不合适、补新岗位</span></div></div>
+<div class="toast" id="toast">已复制</div>
+<script src="jobs.js"></script>
+<script>
+const STATUSES=["待投","已打招呼","已回复","面试","不合适","薪资不合适"];
+const SC=["#8A97A0","#0E6E5C","#2F7DB0","#8A5AC7","#B03A3A","#B5761F"];
+const INDS=["医疗/生物医药","半导体/硬科技","智能/机器人/汽车","新能源","一级市场 PE/VC","其他上市/金融"];
+const ROLES=["IR","证券事务/董秘","投后管理","募资/投融资"];
+const JOBS=(window.JOBS_DATA||[]);
+const KEY="jh_dashboard_v2";let state=JSON.parse(localStorage.getItem(KEY)||"{}");
+function save(){localStorage.setItem(KEY,JSON.stringify(state));}
+function st(id){return state[id]?state[id].s:0;}
+let fInd="全部",fRole="全部",fStatus="全部",fQ="";
+const listEl=document.getElementById("list"),toast=document.getElementById("toast");
+function flash(m){toast.textContent=m;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),1700);}
+function chips(el,items,cur,cb){el.innerHTML="";["全部",...items].forEach(v=>{const c=document.createElement("button");c.className="chip"+(v===cur?" on":"");c.textContent=v;c.onclick=()=>cb(v);el.appendChild(c);});}
+function renderChips(){chips(document.getElementById("f-ind"),INDS,fInd,v=>{fInd=v;render();});chips(document.getElementById("f-role"),ROLES,fRole,v=>{fRole=v;render();});chips(document.getElementById("f-status"),STATUSES,fStatus,v=>{fStatus=v;render();});}
+function visible(){return JOBS.filter(j=>(fInd==="全部"||j.ind===fInd)&&(fRole==="全部"||j.role===fRole)&&(fStatus==="全部"||STATUSES[st(j.id)]===fStatus)&&(!fQ||(j.co+j.title).toLowerCase().includes(fQ.toLowerCase())));}
+function dsince(d){return Math.floor((Date.now()-new Date(d))/864e5);}
+function render(){
+  renderChips();const vis=visible();listEl.innerHTML="";
+  INDS.forEach(ind=>{
+    const items=vis.filter(j=>j.ind===ind).sort((a,b)=>({pri:0,chong:1,check:2}[a.tier]-{pri:0,chong:1,check:2}[b.tier]));
+    if(!items.length)return;
+    const h=document.createElement("div");h.className="sec-h";h.innerHTML="<span>"+ind+"</span><span class='c'>"+items.length+" 个</span>";listEl.appendChild(h);
+    items.forEach(j=>{const s=st(j.id);
+      const fu=(s===1&&state[j.id]&&state[j.id].d&&dsince(state[j.id].d)>=4)?"<span class='followup'>已 "+dsince(state[j.id].d)+" 天 · 建议跟进</span>":"";
+      const opts=STATUSES.map((x,idx)=>"<option value='"+idx+"'"+(idx===s?" selected":"")+">"+x+"</option>").join("");
+      const row=document.createElement("div");row.className="row";row.dataset.tier=j.tier;
+      row.innerHTML="<div class='htop'><div class='hgrow'><div class='title'>"+j.title+" · "+j.co+"</div><div class='tags'><span class='tag role'>"+j.role+"</span><span class='tag'>"+j.lvl+"</span><span class='tag "+j.tier+"'>"+({pri:"优先",chong:"可冲",check:"补充"})[j.tier]+"</span>"+fu+"</div></div><select class='status' data-id='"+j.id+"' style='background-color:"+SC[s]+"'>"+opts+"</select></div><div class='opener'>"+j.opener+"</div><div class='acts'><button class='b copy' data-op='"+j.id+"'>复制打招呼语</button><a class='b go' href='"+j.url+"' target='_blank' rel='noopener'>去 Boss 沟通 ↗</a></div>";
+      listEl.appendChild(row);});
+  });
+  listEl.querySelectorAll("select.status").forEach(sel=>sel.onchange=()=>{const id=sel.dataset.id,ns=+sel.value;state[id]={s:ns,d:(ns===1?new Date().toISOString():(state[id]&&state[id].d))};save();render();});
+  listEl.querySelectorAll(".copy").forEach(b=>b.onclick=()=>{const j=JOBS.find(x=>x.id===b.dataset.op);navigator.clipboard.writeText(j.opener).then(()=>{b.textContent="已复制 ✓";b.classList.add("done");flash("打招呼语已复制");setTimeout(()=>{b.textContent="复制打招呼语";b.classList.remove("done");},2000);}).catch(()=>prompt("复制：",j.opener));});
+  renderStats();document.getElementById("footer").textContent="当前视图 "+vis.length+" / 共 "+JOBS.length;
+}
+function renderStats(){const c=[0,0,0,0,0,0];JOBS.forEach(j=>c[st(j.id)]++);
+  const cards=[["总岗位",JOBS.length,"var(--ink)"],["待投",c[0],SC[0]],["已打招呼",c[1],SC[1]],["已回复",c[2],SC[2]],["面试",c[3],SC[3]],["已排除",c[4]+c[5],SC[4]]];
+  document.getElementById("stats").innerHTML=cards.map(a=>"<div class='stat'><div class='num' style='color:"+a[2]+"'>"+a[1]+"</div><div class='lbl'>"+a[0]+"</div></div>").join("");}
+document.getElementById("q").oninput=e=>{fQ=e.target.value;render();};
+document.getElementById("markAll").onclick=()=>{visible().forEach(j=>{if(st(j.id)===0)state[j.id]={s:1,d:new Date().toISOString()};});save();render();flash("已标记当前视图为已打招呼");};
+document.getElementById("copyActed").onclick=()=>{const a=JOBS.filter(j=>st(j.id)>0).map(j=>j.co+" | "+j.title+" | "+STATUSES[st(j.id)]);if(!a.length){flash("暂无已行动岗位");return;}navigator.clipboard.writeText("我的求职进展(请移除已投/不合适、补充新岗位)：\n"+a.join("\n")).then(()=>flash("已复制进展")).catch(()=>{});};
+if(!JOBS.length){listEl.innerHTML="<p style='color:var(--muted)'>未加载到岗位数据,请确认 jobs.js 与本文件同目录。</p>";}
+render();
+</script>
+</body>
+</html>
