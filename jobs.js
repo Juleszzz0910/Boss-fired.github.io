@@ -1,18 +1,246 @@
-// 求职指挥台数据源 —— 编辑此文件即可增删/更新岗位。
-// 字段: id ind role title co lvl tier(pri/chong/check) url opener
+// 求职指挥台数据源 —— 编辑此文件即可增删/更新岗位。字段: id ind role title co lvl tier url opener
 // 已预筛: 5年+经验、FA/PE/VC/美元基金背景、以及"必备募资经历/自带LP资源"的基金募资岗。
 window.JOBS_DATA = [
- {id:"meinian",ind:"医疗/生物医药",role:"证券事务/董秘",title:"证券事务专员",co:"美年大健康(上市)",lvl:"1-3年",tier:"pri",url:"https://www.zhipin.com/job_detail/acb6ab09dc371c480nV50tS7GFFT.html",opener:"您好,我是朱文璇。中泰投研期深度覆盖过医疗健康/医美赛道(锦波生物2万字评估),又有2.5年美股上市公司IR + 容诚SOX审计底色,熟悉披露与合规。对美年大健康这个证券事务岗很感兴趣,方便聊聊吗?"},
- {id:"medflow",ind:"医疗/生物医药",role:"募资/投融资",title:"募资经理(上市公司资本运作)",co:"某大型医药流通/大健康(上市)",lvl:"3-5年",tier:"chong",url:"https://www.zhipin.com/job_detail/8e5c0e1b5dd179100nF739y5FlFR.html",opener:"您好,我是朱文璇。我有中泰投研期对医疗健康赛道的深度覆盖 + 2.5年美股上市公司IR,擅长产业研究与投资者/资金方沟通、资本市场材料。对贵司这个岗位很感兴趣,方便聊聊吗?"},
- {id:"chipir",ind:"半导体/硬科技",role:"IR",title:"投资者关系专员",co:"某中型半导体/芯片公司",lvl:"3-5年",tier:"pri",url:"https://www.zhipin.com/job_detail/d885dfb2df62c5c00nF53ti_FlpU.html",opener:"您好,我是朱文璇。2.5年纳斯达克上市公司IR(路演80+场、季报Q&A、卖方关系)+ 中泰/光大卖方研究,擅长把硬科技技术壁垒讲成投资人能算账的估值逻辑。对贵司这个IR岗位很感兴趣,方便聊聊吗?"},
- {id:"taorun",ind:"半导体/硬科技",role:"募资/投融资",title:"投融资经理(公司融资)",co:"韬润半导体",lvl:"3-5年",tier:"pri",url:"https://www.zhipin.com/job_detail/fb6086969098aec20nB82di7GFBX.html",opener:"您好,我是朱文璇。2.5年美股上市公司IR + 中泰/光大卖方研究,擅长产业研究、资本市场沟通与材料产出,持续关注半导体赛道。对韬润半导体这个投融资岗位很感兴趣,方便聊聊吗?"},
- {id:"quectel",ind:"半导体/硬科技",role:"证券事务/董秘",title:"证券事务",co:"移远通信 Quectel(上市)",lvl:"3-5年",tier:"pri",url:"https://www.zhipin.com/job_detail/2976f228fc300f850nF509y7EVBS.html",opener:"您好,我是朱文璇。2.5年纳斯达克上市公司完整IR(披露、路演、季报Q&A)+ 卖方研究底子,熟悉美股披露、也在补A股规则。对移远这个证券事务岗很感兴趣,方便聊聊吗?"},
- {id:"shengshi",ind:"半导体/硬科技",role:"证券事务/董秘",title:"证券事务代表",co:"昇视唯盛",lvl:"1-3年",tier:"check",url:"https://www.zhipin.com/job_detail/3567a03ed71fea850nB60t21FFNV.html",opener:"您好,我是朱文璇。2.5年纳斯达克上市公司IR + 卖方研究 + SOX审计底色,擅长投资者沟通与披露材料。对昇视唯盛这个证券事务岗很感兴趣,方便聊聊吗?"},
- {id:"dreame",ind:"智能/机器人/汽车",role:"募资/投融资",title:"投融资经理(公司融资)",co:"追觅科技",lvl:"1-3年",tier:"pri",url:"https://www.zhipin.com/job_detail/75a75e90b8d7d0220nV83d25FFBT.html",opener:"您好,我是朱文璇。2.5年美股上市公司IR + 中泰/光大卖方研究,擅长产业研究与资本市场沟通,持续关注机器人/智能硬件赛道。对追觅这个投融资岗位很感兴趣,希望参与到融资/资本化进程,方便聊聊吗?"},
- {id:"hongtu",ind:"智能/机器人/汽车",role:"募资/投融资",title:"投融资经理(公司融资)",co:"鸿途智行(智能驾驶)",lvl:"1-3年",tier:"pri",url:"https://www.zhipin.com/job_detail/6f07d7191b0ea9680nV-29q1ElZZ.html",opener:"您好,我是朱文璇。2.5年美股上市公司IR + 卖方研究底子,擅长把硬科技讲成可投资叙事,关注智能驾驶赛道。对鸿途智行这个投融资岗位很感兴趣,方便聊聊吗?"},
- {id:"mova",ind:"智能/机器人/汽车",role:"募资/投融资",title:"投融资/IR",co:"MOVA",lvl:"经验不限",tier:"pri",url:"https://www.zhipin.com/job_detail/c479d1479fe3424d0nZ80ty4EFZT.html",opener:"您好,我是朱文璇。2.5年美股上市公司IR(机构沟通、路演、季报Q&A)+ 卖方研究 + 双语,资本市场沟通与材料产出是强项。对MOVA这个投融资/IR岗位很感兴趣,方便聊聊吗?"},
- {id:"bosente",ind:"新能源",role:"募资/投融资",title:"投融资助理(公司融资)",co:"博森特氢能动力",lvl:"1-3年",tier:"check",url:"https://www.zhipin.com/job_detail/0775ab35c0d352400nF62tm5FFZX.html",opener:"您好,我是朱文璇。2.5年美股上市公司IR + 卖方研究底子,擅长产业研究与资本市场材料,关注氢能/新能源赛道。对博森特这个投融资岗位很感兴趣,方便聊聊吗?"},
- {id:"xinsilu",ind:"一级市场 PE/VC",role:"IR",title:"投资者关系(IR)",co:"新丝路资本",lvl:"3-5年",tier:"chong",url:"https://www.zhipin.com/job_detail/0725f47cafbb00e51HJy2tS4GVRU.html",opener:"您好,我是朱文璇。2.5年美股上市公司IR + 中泰/光大卖方研究 + 信达机构销售实习(接触公募/私募/险资),对LP视角与产业故事化有体感。希望转一级市场IR,对新丝路资本的岗位很感兴趣,方便聊聊吗?"},
- {id:"jiufang",ind:"其他上市/金融",role:"IR",title:"投资者关系经理",co:"九方汇盈",lvl:"1-3年",tier:"chong",url:"https://www.zhipin.com/job_detail/38ee8b84a82046bd0nB43Nm-FFtU.html",opener:"您好,我是朱文璇。2.5年纳斯达克上市公司IR + 中泰/光大卖方研究,金融行业背景契合;熟悉投资者沟通与预期管理。对九方汇盈这个IR经理岗很感兴趣,方便聊聊吗?"},
- {id:"aiyingshi",ind:"其他上市/金融",role:"证券事务/董秘",title:"证券事务专员",co:"爱婴室(上市)",lvl:"1-3年",tier:"check",url:"https://www.zhipin.com/job_detail/791829819a8c6bf10nBz0tS-ElFQ.html",opener:"您好,我是朱文璇。2.5年纳斯达克上市公司完整IR(披露、路演、季报Q&A)+ SOX审计底色,熟悉披露与投资者沟通。对爱婴室这个证券事务岗很感兴趣,方便聊聊吗?"}
+ {
+  "id": "meinian",
+  "ind": "医疗/生物医药",
+  "role": "证券事务/董秘",
+  "title": "证券事务专员",
+  "co": "美年大健康(上市)",
+  "lvl": "1-3年",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/acb6ab09dc371c480nV50tS7GFFT.html",
+  "opener": "您好,我是朱文璇。中泰投研期深度覆盖过医疗健康/医美赛道(锦波生物2万字评估),又有2.5年美股上市公司IR + 容诚SOX审计底色,熟悉披露与合规。对美年大健康这个证券事务岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "medflow",
+  "ind": "医疗/生物医药",
+  "role": "募资/投融资",
+  "title": "募资经理(上市公司资本运作)",
+  "co": "某大型医药流通/大健康(上市)",
+  "lvl": "3-5年",
+  "tier": "chong",
+  "url": "https://www.zhipin.com/job_detail/8e5c0e1b5dd179100nF739y5FlFR.html",
+  "opener": "您好,我是朱文璇。我有中泰投研期对医疗健康赛道的深度覆盖 + 2.5年美股上市公司IR,擅长产业研究与投资者/资金方沟通、资本市场材料。对贵司这个岗位很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "chipir",
+  "ind": "半导体/硬科技",
+  "role": "IR",
+  "title": "投资者关系专员",
+  "co": "某中型半导体/芯片公司",
+  "lvl": "3-5年",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/d885dfb2df62c5c00nF53ti_FlpU.html",
+  "opener": "您好,我是朱文璇。2.5年纳斯达克上市公司IR(路演80+场、季报Q&A、卖方关系)+ 中泰/光大卖方研究,擅长把硬科技技术壁垒讲成投资人能算账的估值逻辑。对贵司这个IR岗位很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "taorun",
+  "ind": "半导体/硬科技",
+  "role": "募资/投融资",
+  "title": "投融资经理(公司融资)",
+  "co": "韬润半导体",
+  "lvl": "3-5年",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/fb6086969098aec20nB82di7GFBX.html",
+  "opener": "您好,我是朱文璇。2.5年美股上市公司IR + 中泰/光大卖方研究,擅长产业研究、资本市场沟通与材料产出,持续关注半导体赛道。对韬润半导体这个投融资岗位很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "quectel",
+  "ind": "半导体/硬科技",
+  "role": "证券事务/董秘",
+  "title": "证券事务",
+  "co": "移远通信 Quectel(上市)",
+  "lvl": "3-5年",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/2976f228fc300f850nF509y7EVBS.html",
+  "opener": "您好,我是朱文璇。2.5年纳斯达克上市公司完整IR(披露、路演、季报Q&A)+ 卖方研究底子,熟悉美股披露、也在补A股规则。对移远这个证券事务岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "shengshi",
+  "ind": "半导体/硬科技",
+  "role": "证券事务/董秘",
+  "title": "证券事务代表",
+  "co": "昇视唯盛",
+  "lvl": "1-3年",
+  "tier": "check",
+  "url": "https://www.zhipin.com/job_detail/3567a03ed71fea850nB60t21FFNV.html",
+  "opener": "您好,我是朱文璇。2.5年纳斯达克上市公司IR + 卖方研究 + SOX审计底色,擅长投资者沟通与披露材料。对昇视唯盛这个证券事务岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "dreame",
+  "ind": "智能/机器人/汽车",
+  "role": "募资/投融资",
+  "title": "投融资经理(公司融资)",
+  "co": "追觅科技",
+  "lvl": "1-3年",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/75a75e90b8d7d0220nV83d25FFBT.html",
+  "opener": "您好,我是朱文璇。2.5年美股上市公司IR + 中泰/光大卖方研究,擅长产业研究与资本市场沟通,持续关注机器人/智能硬件赛道。对追觅这个投融资岗位很感兴趣,希望参与到融资/资本化进程,方便聊聊吗?"
+ },
+ {
+  "id": "hongtu",
+  "ind": "智能/机器人/汽车",
+  "role": "募资/投融资",
+  "title": "投融资经理(公司融资)",
+  "co": "鸿途智行(智能驾驶)",
+  "lvl": "1-3年",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/6f07d7191b0ea9680nV-29q1ElZZ.html",
+  "opener": "您好,我是朱文璇。2.5年美股上市公司IR + 卖方研究底子,擅长把硬科技讲成可投资叙事,关注智能驾驶赛道。对鸿途智行这个投融资岗位很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "mova",
+  "ind": "智能/机器人/汽车",
+  "role": "募资/投融资",
+  "title": "投融资/IR",
+  "co": "MOVA",
+  "lvl": "经验不限",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/c479d1479fe3424d0nZ80ty4EFZT.html",
+  "opener": "您好,我是朱文璇。2.5年美股上市公司IR(机构沟通、路演、季报Q&A)+ 卖方研究 + 双语,资本市场沟通与材料产出是强项。对MOVA这个投融资/IR岗位很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "bosente",
+  "ind": "新能源",
+  "role": "募资/投融资",
+  "title": "投融资助理(公司融资)",
+  "co": "博森特氢能动力",
+  "lvl": "1-3年",
+  "tier": "check",
+  "url": "https://www.zhipin.com/job_detail/0775ab35c0d352400nF62tm5FFZX.html",
+  "opener": "您好,我是朱文璇。2.5年美股上市公司IR + 卖方研究底子,擅长产业研究与资本市场材料,关注氢能/新能源赛道。对博森特这个投融资岗位很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "xinsilu",
+  "ind": "一级市场 PE/VC",
+  "role": "IR",
+  "title": "投资者关系(IR)",
+  "co": "新丝路资本",
+  "lvl": "3-5年",
+  "tier": "chong",
+  "url": "https://www.zhipin.com/job_detail/0725f47cafbb00e51HJy2tS4GVRU.html",
+  "opener": "您好,我是朱文璇。2.5年美股上市公司IR + 中泰/光大卖方研究 + 信达机构销售实习(接触公募/私募/险资),对LP视角与产业故事化有体感。希望转一级市场IR,对新丝路资本的岗位很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "jiufang",
+  "ind": "其他上市/金融",
+  "role": "IR",
+  "title": "投资者关系经理",
+  "co": "九方汇盈",
+  "lvl": "1-3年",
+  "tier": "chong",
+  "url": "https://www.zhipin.com/job_detail/38ee8b84a82046bd0nB43Nm-FFtU.html",
+  "opener": "您好,我是朱文璇。2.5年纳斯达克上市公司IR + 中泰/光大卖方研究,金融行业背景契合;熟悉投资者沟通与预期管理。对九方汇盈这个IR经理岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "aiyingshi",
+  "ind": "其他上市/金融",
+  "role": "证券事务/董秘",
+  "title": "证券事务专员",
+  "co": "爱婴室(上市)",
+  "lvl": "1-3年",
+  "tier": "check",
+  "url": "https://www.zhipin.com/job_detail/791829819a8c6bf10nBz0tS-ElFQ.html",
+  "opener": "您好,我是朱文璇。2.5年纳斯达克上市公司完整IR(披露、路演、季报Q&A)+ SOX审计底色,熟悉披露与投资者沟通。对爱婴室这个证券事务岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "niumai",
+  "ind": "医疗/生物医药",
+  "role": "证券事务/董秘",
+  "title": "证券事务专员",
+  "co": "纽脉医疗(心脏瓣膜/医疗器械)",
+  "lvl": "3-5年",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/51e29e007fe3a55d0nV63Ni_GVdU.html",
+  "opener": "您好,我是朱文璇。我在中泰投研期深度覆盖过医疗器械/医美赛道(锦波生物2万字评估),又有2.5年美股上市公司IR + 容诚SOX审计底色,熟悉披露与合规。对纽脉医疗这个证券事务岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "jiakai",
+  "ind": "医疗/生物医药",
+  "role": "证券事务/董秘",
+  "title": "证券事务专员",
+  "co": "珈凯生物",
+  "lvl": "1-3年",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/8ed34114bd4d60960nB53d-5ElRW.html",
+  "opener": "您好,我是朱文璇。中泰投研期覆盖过生物医药赛道 + 2.5年美股上市公司IR + SOX审计底色,熟悉披露与投资者沟通。对珈凯生物这个证券事务岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "shiyao",
+  "ind": "医疗/生物医药",
+  "role": "证券事务/董秘",
+  "title": "证券事务专员",
+  "co": "石药集团恩必普药业",
+  "lvl": "1年以内",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/583d48ccff9ce6690nV63d-_ElBV.html",
+  "opener": "您好,我是朱文璇。2.5年纳斯达克上市公司完整IR + 中泰投研期对医药赛道的覆盖 + SOX审计底色,熟悉披露与合规。对石药/恩必普这个证券事务岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "xiangyao",
+  "ind": "医疗/生物医药",
+  "role": "募资/投融资",
+  "title": "融资经理(公司融资)",
+  "co": "祥耀生物",
+  "lvl": "3-5年",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/ee8fed9fdc6eb1a40nB43tW9GFtX.html",
+  "opener": "您好,我是朱文璇。2.5年美股上市公司IR + 中泰投研期对生物医药的深度覆盖,擅长产业研究、资本市场沟通与材料。对祥耀生物这个融资岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "hongjing",
+  "ind": "智能/机器人/汽车",
+  "role": "IR",
+  "title": "投资者关系专员",
+  "co": "宏景智驾(智能驾驶)",
+  "lvl": "3-5年",
+  "tier": "pri",
+  "url": "https://www.zhipin.com/job_detail/f4f7a91f5803e05a0nF43tq7FFFY.html",
+  "opener": "您好,我是朱文璇。2.5年纳斯达克上市公司IR(路演80+场、季报Q&A、卖方关系)+ 卖方研究,擅长把硬科技讲成投资人能算账的估值逻辑,关注智能驾驶赛道。对宏景智驾这个IR岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "haixi",
+  "ind": "智能/机器人/汽车",
+  "role": "IR",
+  "title": "投资者关系专员(IR)",
+  "co": "海希智能科技",
+  "lvl": "3-5年",
+  "tier": "check",
+  "url": "https://www.zhipin.com/job_detail/d7e64095fcdcbf3f0nBy3di8E1RZ.html",
+  "opener": "您好,我是朱文璇。2.5年美股上市公司IR + 中泰/光大卖方研究,擅长产业研究与投资者沟通。对海希智能这个IR岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "yihai",
+  "ind": "其他上市/金融",
+  "role": "证券事务/董秘",
+  "title": "证券事务专员",
+  "co": "益海嘉里(金龙鱼·上市)",
+  "lvl": "1-3年",
+  "tier": "check",
+  "url": "https://www.zhipin.com/job_detail/7620c432a18c88d60nRz09u6EFVU.html",
+  "opener": "您好,我是朱文璇。2.5年纳斯达克上市公司完整IR(披露、路演、季报Q&A)+ SOX审计底色,熟悉披露与投资者沟通。对益海嘉里这个证券事务岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "fengfan",
+  "ind": "其他上市/金融",
+  "role": "证券事务/董秘",
+  "title": "证券事务专员",
+  "co": "风范股份(上市)",
+  "lvl": "1-3年",
+  "tier": "check",
+  "url": "https://www.zhipin.com/job_detail/30be51e800f47bab0nZ_39W8GVZS.html",
+  "opener": "您好,我是朱文璇。2.5年美股上市公司IR + 卖方研究 + SOX审计底色,擅长披露材料与投资者沟通。对风范股份这个证券事务岗很感兴趣,方便聊聊吗?"
+ },
+ {
+  "id": "boda",
+  "ind": "其他上市/金融",
+  "role": "证券事务/董秘",
+  "title": "证券事务专员",
+  "co": "博达数智科技",
+  "lvl": "1-3年",
+  "tier": "check",
+  "url": "https://www.zhipin.com/job_detail/887276911a3f7cfc031z3Nq5ElpQ.html",
+  "opener": "您好,我是朱文璇。2.5年纳斯达克上市公司IR + 卖方研究 + SOX审计,熟悉披露与投资者沟通。对博达数智这个证券事务岗很感兴趣,方便聊聊吗?"
+ }
 ];
